@@ -10,7 +10,7 @@ Gebruik de terminal uit VSCode om de volgende commands uit te voeren.
 1. `git clone https://github.com/SyntraFSD-JS/ex-02.git ex-02`
 2. `cd ex-01`
 3. `git checkout -b [naam]`
-4. `git push origin [naam]`
+4. `git push --set-upstream origin [naam]`
 
 Push regelmatig de changes die je maakt naar github
 
@@ -37,14 +37,6 @@ Ook daar zal meestal al een basisstructuur aanwezig zijn waarbij in comments sta
 
 Om het resultaat van je oefening te bekijken open je het `index.html` bestand in chrome.
 In deze module gebruiken we allemaal chrome zodat we allemaal hetzelfde resultaat hebben.
-
-## Debuggen
-Debuggen gebeurt in de browser zelf door middel van de console of met break points.
-
-1. Om te debuggen met de console gebruik je volgende function `console.log([wat je wil loggen])`  
-   In de tab console van de developer tools (`Ctrl-Shift-J`) zie wordt geprint wat je logt.
-2. Om efficiënter te debuggen gebruiken we break points:  
-   [![Debugging in chrome](https://img.youtube.com/vi/H0XScE08hy8/0.jpg)](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
 ## Oefeningen:
 ### Oefening 02: Calculator

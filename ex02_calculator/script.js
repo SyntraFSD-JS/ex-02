@@ -1,63 +1,37 @@
-const sumSubmitBtn = document.querySelector('#sum-submit-btn');
-const sumResultContainer = document.querySelector('#sum-result-container');
-const productSubmitBtn = document.querySelector('#product-submit-btn');
-const productResultContainer = document.querySelector('#product-result-container');
-const numberInputContainer = document.querySelector('#input-container');
-const addInputBtn = document.querySelector('#add-input-btn');
-const numberCountContainer = document.querySelector('#number-count-container');
+const sumSubmitBtn;
+const sumResultContainer;
+const productSubmitBtn;
+const productResultContainer;
+const numberInputContainer;
+const addInputBtn;
+const numberCountContainer;
 
 function sumNumbers() {
-  const numberInputs = document.querySelectorAll('.number-input');
-  let total = 0;
-  numberInputs.forEach(function (numberInput) {
-    const number = parseInt(numberInput.value);
-    total += number;
-  });
-  return total;
+  // return the sum value of all the numbers
 }
 
 function printSum() {
-  const totalSum = sumNumbers();
-  sumResultContainer.textContent = totalSum;
+  // print the sum value of all the numbers
 }
 
 function multiplyNumbers(){
-  const numberInputs = document.querySelectorAll('.number-input');
-  let total = 1;
-  numberInputs.forEach(function (numberInput) {
-    const number = parseInt(numberInput.value);
-    total *= number;
-  });
-  return total;
+  // return the product of all the numbers
 }
 
 function printProduct() {
-  const totalProduct = multiplyNumbers();
-  productResultContainer.textContent = totalProduct;
+  // print the product of all the numbers
 }
 
 function printNumberCount(){
-  numberCountContainer.textContent = numberInputContainer.children.length;
+  // get and print the number of input fields
 }
 
 function addNumberInput(){
-  const existingNumberInput = document.querySelector('.number-input-group');
-  const newExitingNumberInput = existingNumberInput.cloneNode(true);
-  newExitingNumberInput.querySelector('.number-input').value = 0;
-  numberInputContainer.appendChild(newExitingNumberInput);
-  printNumberCount(numberInputContainer.children.length);
+  // add a number input
 }
 
 function removeNumberInput(event) {
-  const clickedItem = event.target;
-  if (clickedItem.matches('.delete-number-input')) {
-    const currentNumberInputGroup = clickedItem.closest('.number-input-group');
-    currentNumberInputGroup.remove();
-    printNumberCount();
-  }
+  // remove a number input
 }
 
-sumSubmitBtn.addEventListener('click', printSum);
-productSubmitBtn.addEventListener('click', printProduct);
-addInputBtn.addEventListener('click', addNumberInput);
-numberInputContainer.addEventListener('click', removeNumberInput);
+// add event listeners

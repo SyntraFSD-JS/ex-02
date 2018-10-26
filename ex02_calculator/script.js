@@ -38,11 +38,19 @@ function multiplyNumbers(){
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
+  
 }
 
 function printNumberCount(){
   // get and print the number of input fields
-  const numberInputs = document.querySelectorAll(".number-input");
+
+  const numberOfInputs = numberInputContainer.children.length;
+
+  //same result as
+  //const numberInputs = document.querySelectorAll(".number-input").length;
+  
+  numberCountContainer.textContent = numberOfInputs;
+
 }
 
 function addNumberInput(){
@@ -52,15 +60,15 @@ function addNumberInput(){
   const newNumberInput = newInputGroup.querySelector('.number-input');
   newNumberInput.value = '0';
   numberInputContainer.appendChild(newInputGroup);
-  selectedInputGroup.remove();
+  printNumberCount();
 }
 
-function removeNumberInput(event) {
+function removeNumberInput(eventInformation) {
   // remove a number input
-  console.log(event.target);
-  if(event.target.matches(".delete-number-input")){
-    console.log("gevonden");
-    const selectedInputGroup = event.target.closest(".number-input-group");
+    if(eventInformation.target.matches(".delete-number-input")){
+    const selectedInputGroup = eventInformation.target.closest(".number-input-group");
+    selectedInputGroup.remove();
+    printNumberCount();
 
   }
 }

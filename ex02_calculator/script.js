@@ -1,14 +1,14 @@
 const sumSubmitBtn = document.querySelector ("#sum-submit-btn");
-const sumResultContainer = document.querySelector("#sum-Result-Container");
-const productSubmitBtn = document.querySelector("#product-Submit-Btn");
-const productResultContainer = document.querySelector("#product-Result-Container");
-const numberInputContainer = document.querySelector("number-Input-Container");
-const addInputBtn = document.querySelector("add-Input-Btn");
-const numberCountContainer = document.querySelector("number-Count-Container");
+const sumResultContainer = document.querySelector("#sum-result-container");
+const productSubmitBtn = document.querySelector("#product-submit-btn");
+const productResultContainer = document.querySelector("#product-result-container");
+const numberInputContainer = document.querySelector("number-input-container");
+const addInputBtn = document.querySelector("add-input-btn");
+const numberCountContainer = document.querySelector("number-count-container");
 
 function sumNumbers() {
   // return the sum value of all the numbers
-    const numberInputs document.querySelectorAll(".number-input"); 
+    const numberInputs = document.querySelectorAll(".number-input"); 
     let totalSum = 0;
 
     for(let i = 0; i < numberInputs.length; i++) {
@@ -21,25 +21,28 @@ function sumNumbers() {
 
 function printSum() {
   // print the sum value of all the numbers
+  console.log(456);
     sumResultContainer.textContent = sumNumbers();
+    
 }
 
 function multiplyNumbers(){
   // return the product of all the numbers
-  const numberInputs document.querySelectorAll(".number-input");
+  const numberInputs = document.querySelectorAll(".number-input");
   let totalProduct = 1;
 
   for( let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
-    totalProduct = totalProduct * parseInt(numberInput.value);
+    totalProduct *= parseInt(numberInput.value);
   }
-  
+
   return totalProduct;
 }
 
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
+  console.log(123);
 }
 
 function printNumberCount(){
@@ -55,3 +58,5 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
+sumSubmitBtn.addEventListener('click', printSum);
+productSubmitBtn.addEventListener('click', printProduct);

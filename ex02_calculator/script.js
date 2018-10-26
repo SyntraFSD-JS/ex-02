@@ -80,8 +80,15 @@ function printNumberCount(){
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
-addInputBtn.addEventListener('click', addNumberInput)
+addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
-numberInputContainer.addEventListener('input',printSum)
-numberInputContainer.addEventListener('input',printProduct)
+// realtime aanpassingen
+numberInputContainer.addEventListener('input',printSum);
+numberInputContainer.addEventListener('input',printProduct);
+// of performanter: numberInputContainer.addEventListener('input', function(){
+//  printProduct();
+//  printSum()
+// }
+//);
+
 

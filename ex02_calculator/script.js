@@ -1,13 +1,22 @@
-const sumSubmitBtn;
-const sumResultContainer;
-const productSubmitBtn;
-const productResultContainer;
-const numberInputContainer;
-const addInputBtn;
-const numberCountContainer;
+const sumSubmitBtn = document.querySelector ("#sum-submit-btn");
+const sumResultContainer = document.querySelector("#sum-Result-Container");
+const productSubmitBtn = document.querySelector("#product-Submit-Btn");
+const productResultContainer = document.querySelector("#product-Result-Container");
+const numberInputContainer = document.querySelector("number-Input-Container");
+const addInputBtn = document.querySelector("add-Input-Btn");
+const numberCountContainer = document.querySelector("number-Count-Container");
 
 function sumNumbers() {
   // return the sum value of all the numbers
+    const numberInputs document.querySelectorAll(".number-input"); 
+    let totalSum = 0;
+
+    for(let i = 0; i < numberInputs.length; i++) {
+     let numberInput = numberInputs[i];
+     totalSum = totalSum + parseInt(numberInput.value);
+    }
+
+    return totalSum;
 }
 
 function printSum() {
@@ -16,6 +25,15 @@ function printSum() {
 
 function multiplyNumbers(){
   // return the product of all the numbers
+  const numberInputs document.querySelectorAll(".number-input");
+  let totalProduct = 1;
+
+  for( let i = 0; i < numberInputs.length; i++) {
+    let numberInput = numberInputs[i];
+    totalProduct = totalProduct * parseInt(numberInput.value);
+  }
+  console.log(totalProduct);
+  return totalProduct;
 }
 
 function printProduct() {

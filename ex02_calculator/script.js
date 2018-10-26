@@ -57,6 +57,7 @@ function addNumberInput(){
 
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realtime();
 }
 
 function removeNumberInput(event) {
@@ -65,19 +66,22 @@ function removeNumberInput(event) {
       //console.log('gevonden');
       const inputGroup = event.target.closest('.number-input-group');
       inputGroup.remove();
+      realtime();
   } 
   
   printNumberCount();
+}
+
+function realtime(){
+  printSum();
+  printProduct();
 }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
 
-numberInputContainer.addEventListener('input',function(){
-  printSum();
-  printProduct();
-});
+numberInputContainer.addEventListener('input',realtime);
 
 addInputBtn.addEventListener('click',addNumberInput);
 numberInputContainer.addEventListener('click',removeNumberInput);

@@ -13,9 +13,8 @@ function sumNumbers() {
   for(let i = 0; i < numberInputs.length; i++){
     let numberInput = numberInputs[i];
     totalSum += parseInt(numberInput.value);
-    console.log(totalSum);
+     }
     return totalSum;
-  }
 }
 
 function printSum() {
@@ -31,9 +30,8 @@ function multiplyNumbers(){
   for(let i = 0; i < numberInputs.length; i++){
     let numberInput = numberInputs[i];
     product *= parseInt(numberInput.value);
-    return Product;
-  }
-
+    }
+  return product;
 
 }
 
@@ -44,6 +42,7 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
+  const numberInputs = document.querySelectorAll(".number-input");
 }
 
 function addNumberInput(){
@@ -55,3 +54,5 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
+sumSubmitBtn.addEventListener('click', printSum);
+productSubmitBtn.addEventListener('click', printProduct);

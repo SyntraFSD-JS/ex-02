@@ -40,7 +40,9 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
-  numberCountContainer.textContent = numberInputs.length
+  const numberInputs = document.querySelectorAll(".number-input");
+  // of const numberInputs = numberInputContainer.children.length;
+  numberCountContainer.textContent = numberInputs.length;
 }
 
 function addNumberInput(){
@@ -50,13 +52,15 @@ function addNumberInput(){
   const newNumberInput = newInputGroup.querySelector(".number-input");
   newNumberInput.value = '0'
   numberInputContainer.appendChild(newInputGroup);
+  printNumberCount();
 }
 
 function removeNumberInput(eventInformation) {
   // remove a number input
   if(eventInformation.target.matches(".delete-number-input")){
-    const selectedInputGroup = event.target.closest(".number-input-group");
+    const selectedInputGroup = eventInformation.target.closest(".number-input-group");
     selectedInputGroup.remove();
+    printNumberCount();
   }
 }
 
@@ -65,4 +69,4 @@ sumSubmitBtn.addEventListener("click",printSum);
 productSubmitBtn.addEventListener("click",printProduct);
 
 addInputBtn.addEventListener("click",addNumberInput);
-numberInputContainer.addEventlistener("click",removeNumberInput);
+numberInputContainer.addEventListener("click",removeNumberInput);

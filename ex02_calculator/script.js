@@ -60,7 +60,7 @@ function addNumberInput(){
 
 function removeNumberInput(eventInformation) {
   // remove a number input
-  if(eventInformation.target.matches('.delete-number-input') && (numberInputContainer.children.length > 2)) {
+  if(eventInformation.target.matches('.delete-number-input') && numberInputContainer.children.length > 2) {
     const selectedInputGroup = eventInformation.target.closest('.number-input-group');
     selectedInputGroup.remove();
     printNumberCount();
@@ -70,8 +70,9 @@ function removeNumberInput(eventInformation) {
 
 function printNumberCount(){
   // get and print the number of input fields
-  const numberCount = document.querySelectorAll(".number-input").length;
-  // vlotter : const numberCount = numberInputContainer.children.length;
+  const numberCount = numberInputContainer.children.length;
+  // vlotter : const numberCount = document.querySelectorAll(".number-input").length;
+  
   numberCountContainer.textContent = numberCount;
 
 }
@@ -81,4 +82,6 @@ sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput)
 numberInputContainer.addEventListener('click', removeNumberInput);
+numberInputContainer.addEventListener('input',printSum)
+numberInputContainer.addEventListener('input',printProduct)
 

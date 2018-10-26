@@ -73,12 +73,6 @@ function removeNumberInput(event) {
 // add event listeners
 sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
-
 numberInputContainer.addEventListener('input',printSum);
 numberInputContainer.addEventListener('input',printProduct);
-
 addInputBtn.addEventListener('click',addNumberInput);
-numberInputContainer.addEventListener('click',removeNumberInput);
-
-numberInputContainer.addEventListener('input',addNumberInput);
-numberInputContainer.addEventListener('input',removeNumberInput);

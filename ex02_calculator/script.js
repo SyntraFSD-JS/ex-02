@@ -13,6 +13,9 @@ function sumNumbers() {
   for (let i=0; i < numberInputs.length;i++){
     let numberInput = numberInputs[i]
     totalSum += parseInt(numberInput.value);
+  /* of numberInputs.forEach(function(numberInput){
+      totalSum += parseInt(numberInput.value);
+      })*/
   }
   return totalSum;
 }
@@ -30,6 +33,11 @@ function multiplyNumbers(){
     let numberInput = numberInputs[i];
     totalProduct *= parseInt(numberInput.value);
   }
+/* of numberInputs.forEach(function(numberInput){})
+      totalProduct *= parseInt(numberInput.value);
+      })*/
+
+
   return totalProduct;
 }
 

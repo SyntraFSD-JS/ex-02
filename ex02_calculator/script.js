@@ -1,21 +1,21 @@
 const sumSubmitBtn = document.querySelector('#sum-submit-btn');
-const sumResultContainer = document.querySelector('sum-resolt-container');
-const productSubmitBtn = document.querySelector('product-submit-btn');
-const productResultContainer = document.querySelector('product-resolt-container');
-const numberInputContainer = document.querySelector('input-container');
+const sumResultContainer = document.querySelector('#sum-result-container');
+const productSubmitBtn = document.querySelector('#product-submit-btn');
+const productResultContainer = document.querySelector('#product-result-container');
+const numberInputContainer = document.querySelector('#input-container');
 const addInputBtn = document.querySelector('#add-input-btn');
 const numberCountContainer = document.querySelector('#number-count-container');
 
 function sumNumbers() {
   // return the sum value of all the numbers
-  const numberInputs = document.querySelectorAll("number-input");
+  const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
 
   for(let i = 0; i < numberInputs.length; i++) {
       let numberInput = numberInputs[i]; 
-       totalSum += parseInt(numberInput.value);
+      totalSum += parseInt(numberInput.value);
   }
-return totalSum;
+  return totalSum;
 }
 
 function printSum() {
@@ -25,16 +25,19 @@ function printSum() {
 
 function multiplyNumbers(){
   // return the product of all the numbers
-  const addNumberInput = document.querySelectorAll("number-input");
+  const numberInputs = document.querySelectorAll(".number-input");
   let totalProduct = 1;
 
-  for(let i = 0; i < 1 lenght; i++) {
-      let numberInput = numberInput.length; [i]) {
+  for(let i = 0; i < numberInputs.length; i++) {
+      let numberInput = numberInputs[i]; 
        totalProduct *= parseInt(numberInput.value);
+  }
+  return totalProduct;
 }
 
 function printProduct() {
   // print the product of all the numbers
+  productResultContainer.textContent = multiplyNumbers()
 }
 
 function printNumberCount(){
@@ -51,5 +54,5 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
-sumSubmitBtn.addEventListener('click'), printSum);
-sumSubmitBtn.addEventListener('click'), printProduct);
+sumSubmitBtn.addEventListener('click', printSum);
+productSubmitBtn.addEventListener('click', printProduct);

@@ -40,6 +40,7 @@ function multiplyNumbers(){
   }
   return totalProduct;
   }
+
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
@@ -56,7 +57,6 @@ function printNumberCount(){
 
 }
 
-
 function addNumberInput(){
   // add a number input
   const existingInputGroup = document.querySelector('.number-input-group');
@@ -65,6 +65,7 @@ function addNumberInput(){
   newNumberImputValue ='0';
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realTime();
 }
 
 function removeNumberInput(eventInfo) {
@@ -73,9 +74,11 @@ function removeNumberInput(eventInfo) {
     const selectedInputGroup = event.target.closest('.number-input-group');
     selectedInputGroup.remove();
     printNumberCount();
-  }
-  
+    realTime();
+  }  
 }
+
+
 
 // add event listeners
 // add event listeners
@@ -83,3 +86,34 @@ sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
+numberInputContainer.addEventListener('input', realTime);
+
+/*numberInputContainer.addEventListener('input', function(){
+  printSum();
+  printProduct();
+})
+
+/* empty function() */
+
+
+ function realTime(){
+printProduct();
+printSum();
+}
+numberInputContainer.addEventListener('input', realTime);
+
+/*numberInputContainer.addEventListener('input', printSum);
+numberInputContainer.addEventListener('input', printProduct);*/
+
+/* kunt ook nog bij function sumNumbers en multiplyNumbers 
+een forEach toevoegen ipv die for loop
+=> numberInputs.forEach(function(numberInput){
+      totalSum += parseInt(numberInput.value);
+})
+return totalSum
+
+die function is een lege function maar wel met 1 parameter 
+nl. numberInput en ge vraagt de value op van die parameter
+(op de volgende lijn)
+
+

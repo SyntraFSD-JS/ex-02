@@ -17,7 +17,7 @@ function sumNumbers() {
   return totalSum;
 }
 
-function printSum(event) {
+function printSum() {
   // print the sum value of all the numbers
   sumResultContainer.textContent = sumNumbers();
 }
@@ -70,3 +70,7 @@ sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
+numberInputContainer.addEventListener('input', function(){
+  printProduct();
+  printSum();
+});

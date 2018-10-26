@@ -53,6 +53,7 @@ function addNumberInput(){
   newNumberInput.value = '0'
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realTime();
 }
 
 function removeNumberInput(eventInformation) {
@@ -61,7 +62,13 @@ function removeNumberInput(eventInformation) {
     const selectedInputGroup = eventInformation.target.closest(".number-input-group");
     selectedInputGroup.remove();
     printNumberCount();
+    realTime();
   }
+}
+
+function realTime(){
+  printProduct();
+  printSum();
 }
 
 //add event listeners
@@ -70,3 +77,6 @@ productSubmitBtn.addEventListener("click",printProduct);
 
 addInputBtn.addEventListener("click",addNumberInput);
 numberInputContainer.addEventListener("click",removeNumberInput);
+numberInputContainer.addEventListener("input",printSum);
+numberInputContainer.addEventListener("input",printProduct);
+numberInputContainer.addEventListener("input",realTime);

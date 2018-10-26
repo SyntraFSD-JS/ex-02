@@ -52,17 +52,26 @@ function printNumberCount(){
 }
 
 function addNumberInput(){
-  // add a number input 
+  // add a number input, kopieer element voor number input
   const existingInputGroup = document.querySelector('.number-input-group');
   const newInputGroup = existingInputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector('.number-input');
+  newNumberInput.value = '0';
   numberInputContainer.appendChild(newInputGroup);
+
 }
 
-function removeNumberInput(event) {
+function removeNumberInput(eventInformation) {
   // remove a number input
+  if(eventInformation.target.matches('.delete-number-input')) {
+    const selectedInputGroup = eventInformation.target.closest('.number-input-group');
+    selectedInputGroup.remove();
+  }
+
 }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput)
+numberInputContainer.addEventListener('click', removeNumberInput);

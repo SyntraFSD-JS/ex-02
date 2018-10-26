@@ -42,21 +42,33 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
+  const numberOfInputs = numberInputContainer.children.length;
+  //same resolt as>
+  //const numberOfInput = document.querySelectorAll('.input-number').length;
+  numberCountContainer.textContent = numberOfInputs;
 }
 
 function addNumberInput(){
   // add a number input
   const inputGroup = document.querySelector('.number-input-group');
   const newInputGroup = inputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector('.number-input');
+  newNumberInput.value ='0';
   numberInputContainer.appendChild(newInputGroup);
+  printNumberCount();
 }
 
-function removeNumberInput(event) {
+function removeNumberInput(eventInformation) {
   // remove a number input
-
+  if (eventInformation.target.matches('.delete-number-input')) {
+  const selectedInputGroup = eventInformation.target.closest('.number-input-group');
+  selectedInputGroup.remove();
+  printNumberCount();
+}
 }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
+numberInputContainer.addEventListener('click', removeNumberInput);

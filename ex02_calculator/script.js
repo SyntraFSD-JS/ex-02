@@ -52,7 +52,7 @@ function addNumberInput(){
 
 function removeNumberInput(event) {
   // remove a number input
-  if (event.target.matches(".delete-number-input")){
+  if (event.target.matches(".delete-number-input") && (numberInputContainer.children.length > 2)){
     const selectedInputGroup = event.target.closest(".number-input-group");
     selectedInputGroup.remove();
     printNumberCount();

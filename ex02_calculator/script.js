@@ -47,18 +47,34 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
-  
+  const numberOfInputs = numberInputContainer.children.length;
+  /* same result as
+  const numberOfInputs = document.querySelectorAll('.input-number').length;*/
+  numberCountContainer.textContent = numberOfInputs;
+  /* wanneer moet de functie uitgevoerd w? als je op 'add input' klikt
+  => moet bij addNumberInput MAAR ook bij removeNumberInput*/
+
 }
+
 
 function addNumberInput(){
   // add a number input
   const existingInputGroup = document.querySelector('.number-input-group');
   const newInputGroup = existingInputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector('.number-input');
+  newNumberImputValue ='0';
   numberInputContainer.appendChild(newInputGroup);
+  printNumberCount();
 }
 
-function removeNumberInput(event) {
+function removeNumberInput(eventInfo) {
   // remove a number input
+  if (event.target.matches('.delete-number-input') && (numberInputContainer.children.length > 2)){
+    const selectedInputGroup = event.target.closest('.number-input-group');
+    selectedInputGroup.remove();
+    printNumberCount();
+  }
+  
 }
 
 // add event listeners
@@ -66,3 +82,4 @@ function removeNumberInput(event) {
 sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
+numberInputContainer.addEventListener('click', removeNumberInput);

@@ -21,8 +21,7 @@ function sumNumbers() {
 
 function printSum() {
   // print the sum value of all the numbers
-  console.log(456);
-    sumResultContainer.textContent = sumNumbers();
+  sumResultContainer.textContent = sumNumbers();
     
 }
 
@@ -42,17 +41,19 @@ function multiplyNumbers(){
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
-  console.log(123);
 }
 
 function printNumberCount(){
   // get and print the number of input fields
+ 
 }
 
 function addNumberInput(){
   // add a number input
   const existingInputGroup = document.querySelector(".number-input-group");
   const newInputGroup = existingInputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector(".number-input");
+  newNumberInput.value = "0";
 
   numberInputContainer.appendChild(newInputGroup);
 
@@ -60,9 +61,16 @@ function addNumberInput(){
 
 function removeNumberInput(event) {
   // remove a number input
+  console.log(event);
+  if (event.target.matches('.delete-number-input')) {
+    const selectedInputGroup = event.target.closest('.number-input-group');
+    selectedInputGroup.remove();
+  }
+
 }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
+numberInputContainer.addEventListener('click', removeNumberInput);

@@ -17,7 +17,7 @@ function sumNumbers() {
     totalSum += parseInt(numberinput.value);
   }*/
 
-  numberInputs.forEach(function (numberInputs){totalSum += parseInt(numberinput.value);})
+  numberInputs.forEach(function (numberInputs){totalSum += parseInt(numberinput.value);});
   return totalSum;
 }
 

@@ -19,14 +19,13 @@ function sumNumbers() {
 
 function printSum() {
   // print the sum value of all the numbers
-  
-
+  sumResultContainer.textContent = sumNumbers();
 }
 
 function multiplyNumbers(){
   // return the product of all the numbers
   const numberInputs = document.querySelectorAll(".number-input")
-  let totalProduct = 0;
+  let totalProduct = 1;
   for (let i=0; i < numberInputs.length;i++){
     let numberInput = numberInputs[i]
     totalProduct *= parseInt(numberInput.value);
@@ -36,6 +35,7 @@ function multiplyNumbers(){
 
 function printProduct() {
   // print the product of all the numbers
+  productResultContainer.textContent = multiplyNumbers();
 }
 
 function printNumberCount(){

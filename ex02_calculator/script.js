@@ -58,6 +58,6 @@ sumSubmitBtn.addEventListener("click", function() {
   printSum();
 });
 
-productSubmitBtn.addEventListener("click", funtion(){
+productSubmitBtn.addEventListener("click", function(){
   printProduct();
 });

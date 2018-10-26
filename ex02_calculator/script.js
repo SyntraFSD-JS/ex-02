@@ -47,12 +47,26 @@ function printNumberCount(){
 
 function addNumberInput(){
   // add a number input
+  const existinInputGroup = document.querySelector(".number-input-group");
+  const newInputGroup = existinInputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector('.number-input');
+  newNumberInput.value = '0';
+  numberInputContainer.appendChild(newInputGroup);
+  selectedInputGroup.remove();
 }
 
 function removeNumberInput(event) {
   // remove a number input
+  console.log(event.target);
+  if(event.target.matches(".delete-number-input")){
+    console.log("gevonden");
+    const selectedInputGroup = event.target.closest(".number-input-group");
+
+  }
 }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
+addInputBtn.addEventListener('click', addNumberInput);
+numberInputContainer.addEventListener('click', removeNumberInput);

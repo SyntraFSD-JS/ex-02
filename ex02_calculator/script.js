@@ -10,11 +10,11 @@ function sumNumbers() {
   // return the sum value of all the numbers
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
-  for(let i = 0; i < numberInputs.length; i++){
-    let numberInput = numberInputs[i];
-    totalSum += parseInt(numberInput.value);
-     }
-    return totalSum;
+  //foreach vervangt hier de for loop
+ numberInputs.forEach(function(numberInput) {
+  totalSum += parseInt(numberInput.value);
+ });
+   return totalSum;
 }
 
 function printSum() {
@@ -61,20 +61,37 @@ function addNumberInput(){
   newNumberInput.value = '0';
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realtime();
 }
 
 function removeNumberInput(eventInformation) {
   // remove a number input
-    if(eventInformation.target.matches(".delete-number-input")){
+    if((eventInformation.target.matches(".delete-number-input")) && numberInputContainer.children.length > 2){
     const selectedInputGroup = eventInformation.target.closest(".number-input-group");
     selectedInputGroup.remove();
     printNumberCount();
-
+    realtime();
   }
 }
+
+function realtime(){
+  printProduct();
+  printSum();
+  }
 
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
+//numberInputContainer.addEventListener('input', printSum);
+//numberInputContainer.addEventListener('input', printProduct);
+
+//met anonieme functie (kan je niet hergebruiken):
+//(input event slaat ook op children in numberInputContainer)
+numberInputContainer.addEventListener('input', function() {
+  printProduct();
+  printSum();
+})
+
+

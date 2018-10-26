@@ -15,10 +15,9 @@ function sumNumbers() {
     (als je 2 dingen wil optellen is dat dus 2)
     zolang i < 2 = true doet hij verder*/
       let numberInput = numberInputs[i];
-      totalSum += ParseInt(numberInput.value);
-  }
-  console.log(totalSum);
-  return totalSum;
+      totalSum += parseInt(numberInput.value);}
+      return totalSum;
+  
 }
 
 function printSum() {
@@ -36,10 +35,10 @@ function multiplyNumbers(){
   // 1 omdat x0 = 0
   for (let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
-    totalProduct += ParseInt(numberInput.value);
-}
-return totalProduct;
-
+    totalProduct += parseInt(numberInput.value);
+  }
+  return totalProduct;
+  }
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
@@ -59,3 +58,6 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
+// add event listeners
+sumSubmitBtn.addEventListener('click',printSum);
+productSubmitBtn.addEventListener('click',printProduct);

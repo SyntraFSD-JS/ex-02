@@ -17,7 +17,9 @@ function sumNumbers() {
     totalSum += parseInt(numberinput.value);
   }*/
 
-  numberInputs.forEach(function (numberInputs){totalSum += parseInt(numberinput.value);});
+  numberInputs.forEach(function (numberInput){
+    totalSum += parseInt(numberInput.value);
+  });
   return totalSum;
 }
 
@@ -31,10 +33,15 @@ function multiplyNumbers(){
   const numberInputs = document.querySelectorAll(".number-input");
   let totalProduct=1;
 
-  for(let i = 0;i< numberInputs.length;i++){
+  /*for(let i = 0;i< numberInputs.length;i++){
     let numberinput= numberInputs[i];
     totalProduct *= parseInt(numberinput.value);
-  }
+  }*/
+
+  numberInputs.forEach(function (numberInput){
+    totalProduct *= parseInt(numberInput.value);
+  });
+  
   return totalProduct;
 }
 

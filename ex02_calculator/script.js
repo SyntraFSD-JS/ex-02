@@ -10,38 +10,41 @@ function sumNumbers() {
   // return the sum value of all the numbers
   // parseInt maakt van een string een nummer
   // .naam is een class en #naam is een id te zien in querySeletor("")
+  // kan ook langer bv totalSum = totalSum + parseInt(numberInput.value);
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
-  for (let 1 = 0; 1 < numberInputs.length; i++) {
+  for (let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
-    totalSum = totalSum + parseInt(numberInput.value); // deze lijn kan ook korter bv totalSum += parseInt(numberInput.value);
+    totalSum += parseInt(numberInput.value);
   }
   return totalSum;
 }
 
 function printSum() {
   // print the sum value of all the numbers
-  sumResultContainer.textContent = sumNumbers;
+  sumResultContainer.textContent = sumNumbers();
 }
 
 function multiplyNumbers(){
   // return the product of all the numbers
-  const productInputs = document.querySelectorAll(".product-input");
+  const numberInputs = document.querySelectorAll(".number-input");
   let totalProduct = 1;
-  for (let 1 = 0; 1 < productInputs.length; i++) {
-    let productInput = productInputs[i];
-    totalProduct = totalProduct * parseInt(productInput.value);
+  for (let i = 0; i < numberInputs.length; i++) {
+    let numberInput = numberInputs[i];
+    totalProduct *= parseInt(numberInput.value);
   }
   return totalProduct;
 }
 
 function printProduct() {
   // print the product of all the numbers
-  productResultContainer.textContent = multiplyNumbers;
+  productResultContainer.textContent = multiplyNumbers();
 }
 
 function printNumberCount(){
   // get and print the number of input fields
+  // let numberCount = 
+  // numberCountContainer.textContent = 
 }
 
 function addNumberInput(){
@@ -53,3 +56,5 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
+sumSubmitBtn.addEventListener('click', printSum);
+productSubmitBtn.addEventListener('click', printProduct);

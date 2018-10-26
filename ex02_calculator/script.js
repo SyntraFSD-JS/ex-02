@@ -8,12 +8,11 @@ const numberCountContainer = document.querySelector('#number-count-container');
 
 function sumNumbers() {
   // return the sum value of all the numbers
-  const numberInputs = document.querySelectorAll(".number-input");
+  const numberInputs = document.querySelectorAll('.number-input');
   let totalSum = 0;
-  for (let i = 0; i < numberInputs.length; i++) {
-    let numberInput = numberInputs[i];
+  numberInputs.forEach(function (numberInput) {
     totalSum += parseInt(numberInput.value);
-  }
+  });
   return totalSum;
 }
 
@@ -38,6 +37,11 @@ function printProduct() {
   productResultContainer.textContent = multiplyNumbers();
 }
 
+function realTime(){
+  printProduct();
+  printSum();
+}
+
 function printNumberCount(){
   // get and print the number of input fields
   const numberOfInputs = numberInputContainer.children.length;
@@ -54,14 +58,16 @@ function addNumberInput(){
   newNumberInput.value = '0';
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realTime();
 }
 
 function removeNumberInput(eventInformation) {
   // remove a number input
-  if (eventInformation.target.matches('.delete-number-input')) {
+  if (eventInformation.target.matches('.delete-number-input') && numberInputContainer.children.length > 2) {
     const selectedInputGroup = eventInformation.target.closest('.number-input-group');
     selectedInputGroup.remove();
     printNumberCount();
+    realTime();
   }
 }
 
@@ -70,7 +76,4 @@ sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
-numberInputContainer.addEventListener('input', function(){
-  printProduct();
-  printSum();
-});
+numberInputContainer.addEventListener('input', realTime);

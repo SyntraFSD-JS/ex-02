@@ -2,20 +2,21 @@ const sumSubmitBtn = document.querySelector('#sum-submit-btn');
 const sumResultContainer = document.querySelector('#sum-result-container');
 const productSubmitBtn = document.querySelector('#product-submit-btn');
 const productResultContainer = document.querySelector('#product-result-container');
-const numberInputContainer = document.querySelector('#number-input-container');
+const numberInputContainer = document.querySelector('#input-container');
 const addInputBtn = document.querySelector('#add-input-btn');
 const numberCountContainer = document.querySelector('#number-count-container');
 
 function sumNumbers() {
   // return the sum value of all the numbers
+   /*numberInputs.length = hoeveel nummers erin zitten 
+    (als je 2 dingen wil optellen is dat dus 2)
+    zolang i < 2 = true doet hij verder*/
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
   for (let i = 0; i < numberInputs.length; i++) {
-    /*numberInputs.length = hoeveel nummers erin zitten 
-    (als je 2 dingen wil optellen is dat dus 2)
-    zolang i < 2 = true doet hij verder*/
-      let numberInput = numberInputs[i];
-      totalSum += parseInt(numberInput.value);}
+         let numberInput = numberInputs[i];
+      totalSum += parseInt(numberInput.value);
+    }
       return totalSum;
   
 }
@@ -35,7 +36,7 @@ function multiplyNumbers(){
   // 1 omdat x0 = 0
   for (let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
-    totalProduct += parseInt(numberInput.value);
+    totalProduct *= parseInt(numberInput.value);
   }
   return totalProduct;
   }
@@ -51,6 +52,9 @@ function printNumberCount(){
 
 function addNumberInput(){
   // add a number input
+  const existingInputGroup = document.querySelector('.number-input-group');
+  const newInputGroup = existingInputGroup.cloneNode(true);
+  numberInputContainer.appendChild(newInputGroup);
 }
 
 function removeNumberInput(event) {
@@ -61,3 +65,4 @@ function removeNumberInput(event) {
 // add event listeners
 sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
+addInputBtn.addEventListener('click', addNumberInput);

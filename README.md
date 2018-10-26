@@ -1,4 +1,4 @@
-# Oefening 01
+# Oefening 02
 ## Voorbereiding:
 Clone de git-repository uit github en maak je eigen branch.
 1. Kopieer de url via github naar je klembord:  
@@ -8,7 +8,7 @@ Gebruik de terminal uit VSCode om de volgende commands uit te voeren.
 (vervang `[naam]` door je eigen naam)
 
 1. `git clone https://github.com/SyntraFSD-JS/ex-02.git ex-02`
-2. `cd ex-01`
+2. `cd ex-02`
 3. `git checkout -b [naam]`
 4. `git push --set-upstream origin [naam]`
 

@@ -11,12 +11,16 @@ function sumNumbers() {
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
 
-  for(let i = 0; i < numberInputs.length; i++) {
-    let numberInput = numberInputs[i];
-  // totalSum = totalSum + parseInt(numberInput.value);
+  //for(let i = 0; i < numberInputs.length; i++) {
+  //let numberInput = numberInputs[i];
+  numberInputs.forEach(function (numberInput){
+  totalSum += parseInt(numberInput.value);
+  });
+  
   // parseInt maakt van de string numberInput.value een integer
-    totalSum += parseInt(numberInput.value)
-  }
+    //totalSum += parseInt(numberInput.value)
+    // totalSum = totalSum + parseInt(numberInput.value);
+  
   console.log(totalSum)
   return totalSum;
 }
@@ -32,11 +36,15 @@ function multiplyNumbers(){
   const numberInputs = document.querySelectorAll(".number-input");
   let totalMultiply = 1;
 
-  for(let i = 0; i < numberInputs.length; i++) {
-    let numberInput = numberInputs[i];
+  numberInputs.forEach(function (numberInput){
+    totalMultiply *= parseInt(numberInput.value);
+  });
+  //andere notatie: for(let i = 0; i < numberInputs.length; i++) {
+    //let numberInput = numberInputs[i];
+
    // totalMultiply = totalSum * parseInt(numberInput.value);
-    totalMultiply *= parseInt(numberInput.value)
-  }
+   // totalMultiply *= parseInt(numberInput.value)
+  
   console.log(totalMultiply)
   return totalMultiply;
 }

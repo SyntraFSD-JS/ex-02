@@ -2,7 +2,7 @@ const sumSubmitBtn= document.querySelector("#sum-submit-btn");
 const sumResultContainer= document.querySelector("#sum-result-container");
 const productSubmitBtn= document.querySelector("#product-submit-btn");
 const productResultContainer= document.querySelector("#product-result-container");
-const numberInputContainer= document.querySelector("#numer-input-container");
+const numberInputContainer= document.querySelector("#input-container");
 const addInputBtn= document.querySelector("#add-input-btn");
 const numberCountContainer= document.querySelector("#number-count-container");
 
@@ -53,6 +53,9 @@ function printNumberCount(){
 
 function addNumberInput(){
   // add a number input 
+  const existingInputGroup = document.querySelector('.number-input-group');
+  const newInputGroup = existingInputGroup.cloneNode(true);
+  numberInputContainer.appendChild(newInputGroup);
 }
 
 function removeNumberInput(event) {
@@ -60,3 +63,6 @@ function removeNumberInput(event) {
 }
 
 // add event listeners
+sumSubmitBtn.addEventListener('click', printSum);
+productSubmitBtn.addEventListener('click', printProduct);
+addInputBtn.addEventListener('click', addNumberInput)

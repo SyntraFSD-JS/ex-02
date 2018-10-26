@@ -1,10 +1,10 @@
-const sumSubmitBtn= document.querySelector("#sum-submit-btn");
-const sumResultContainer= document.querySelector("#sum-result-container");
-const productSubmitBtn=document.querySelector("#product-submit-btn");
-const productResultContainer=document.querySelector("#product-result-container");
-const numberInputContainer=document.querySelector("#input-container");
-const addInputBtn=document.querySelector("#add-input-btn");
-const numberCountContainer=document.querySelector("#number-count-container");
+const sumSubmitBtn= document.querySelector('#sum-submit-btn');
+const sumResultContainer= document.querySelector('#sum-result-container');
+const productSubmitBtn=document.querySelector('#product-submit-btn');
+const productResultContainer=document.querySelector('#product-result-container');
+const numberInputContainer=document.querySelector('#input-container');
+const addInputBtn=document.querySelector('#add-input-btn');
+const numberCountContainer=document.querySelector('#number-count-container');
 
 
 function sumNumbers() {
@@ -43,22 +43,41 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
-  return document.querySelectorAll(".number-input").length;
+  
+  numberCountContainer.textContent = numberInputContainer.children.length;
 }
 
 function addNumberInput(){
   // add a number input
-  const existingInputGroup = document.querySelector(".number-input-group")
+  const existingInputGroup = document.querySelector('.number-input-group')
   const newInputGroup = existingInputGroup.cloneNode(true);
-  numberInputContainer.appendChild(newInputGroup)
+
+  let newNumberInput = newInputGroup.querySelector('.number-input');
+  newNumberInput.value='0';
+
+  numberInputContainer.appendChild(newInputGroup);
+  printNumberCount();
 }
 
 function removeNumberInput(event) {
   // remove a number input
+  if(numberCountContainer.textContent > 2){
+    if(event.target.matches('.delete-number-input')){
+      //console.log('gevonden');
+      const inputGroup = event.target.closest('.number-input-group');
+      inputGroup.remove();
+    }
+  } 
+  
+  printNumberCount();
 }
 
 // add event listeners
-sumSubmitBtn.addEventListener("click",printSum);
-productSubmitBtn.addEventListener("click",printProduct);
+sumSubmitBtn.addEventListener('click',printSum);
+productSubmitBtn.addEventListener('click',printProduct);
 
-addInputBtn.addEventListener("click",addNumberInput);
+sumSubmitBtn.addEventListener('onchange',printSum);
+productSubmitBtn.addEventListener('onchange',printProduct);
+
+addInputBtn.addEventListener('click',addNumberInput);
+numberInputContainer.addEventListener('click',removeNumberInput);

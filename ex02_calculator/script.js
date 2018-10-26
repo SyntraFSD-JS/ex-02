@@ -52,7 +52,7 @@ function printNumberCount(){
 }
 
 function addNumberInput(){
-  // add a number input
+  // add a number input 
 }
 
 function removeNumberInput(event) {

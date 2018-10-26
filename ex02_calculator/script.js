@@ -41,6 +41,12 @@ function multiplyNumbers(){
   return totalMultiply;
 }
 
+function realTime() {
+  printProduct();
+  printSum ();
+
+}
+
 function printProduct() {
   // print the product of all the numbers
   productResultContainer.textContent = multiplyNumbers();
@@ -55,7 +61,7 @@ function addNumberInput(){
   newNumberInput.value = '0';
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
-
+  realTime()
 }
 
 function removeNumberInput(eventInformation) {
@@ -64,6 +70,7 @@ function removeNumberInput(eventInformation) {
     const selectedInputGroup = eventInformation.target.closest('.number-input-group');
     selectedInputGroup.remove();
     printNumberCount();
+    realTime()
   }
 
 }
@@ -83,11 +90,10 @@ productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
 // realtime aanpassingen
-numberInputContainer.addEventListener('input',printSum);
-numberInputContainer.addEventListener('input',printProduct);
-// of performanter: numberInputContainer.addEventListener('input', function(){
+numberInputContainer.addEventListener('input',realTime);
+// of performanter (voor de functie realTime erbij kwam): numberInputContainer.addEventListener('input', function(){
 //  printProduct();
-//  printSum()
+//  printSum;
 // }
 //);
 

@@ -27,7 +27,7 @@ function multiplyNumbers(){
   const numberInputs = document.querySelectorAll(".number-input")
   let totalProduct = 1;
   for (let i=0; i < numberInputs.length;i++){
-    let numberInput = numberInputs[i]
+    let numberInput = numberInputs[i];
     totalProduct *= parseInt(numberInput.value);
   }
   return totalProduct;
@@ -40,26 +40,29 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
+  numberCountContainer.textContent = numberInputs.length
 }
 
 function addNumberInput(){
   // add a number input
+  const existingInputGroup = document.querySelector(".number-input-group");
+  const newInputGroup = existingInputGroup.cloneNode(true);
+  const newNumberInput = newInputGroup.querySelector(".number-input");
+  newNumberInput.value = '0'
+  numberInputContainer.appendChild(newInputGroup);
 }
 
-function removeNumberInput(event) {
+function removeNumberInput(eventInformation) {
   // remove a number input
+  if(eventInformation.target.matches(".delete-number-input")){
+    const selectedInputGroup = event.target.closest(".number-input-group");
+    selectedInputGroup.remove();
+  }
 }
 
-// add event listeners
-let snumber_01 = document.querySelector ("#number-01").value;
-let snumber_02 = document.querySelector ("#number-02").value;
-let isom = parseInt(snumber_01) + parseInt(snumber_02);
-let iverschil = parseInt(snumber_01) - parseInt(snumber_02);
-let iproduct = parseInt(snumber_01) * parseInt(snumber_02);
-let ideling = parseInt(snumber_01) / parseInt(snumber_02);
-let fomzetting = parseFloat(ideling);
-let iresultaat = Math.round(fomzetting*100)/100;
-document.getElementById("result1").innerHTML = isom;
-document.getElementById("result2").innerHTML = iverschil;
-document.getElementById("result3").innerHTML = iproduct;
-document.getElementById("result4").innerHTML = iresultaat;
+//add event listeners
+sumSubmitBtn.addEventListener("click",printSum);
+productSubmitBtn.addEventListener("click",printProduct);
+
+addInputBtn.addEventListener("click",addNumberInput);
+numberInputContainer.addEventlistener("click",removeNumberInput);

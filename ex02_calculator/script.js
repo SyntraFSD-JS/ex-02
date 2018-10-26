@@ -61,12 +61,10 @@ function addNumberInput(){
 
 function removeNumberInput(event) {
   // remove a number input
-  if(numberCountContainer.textContent > 2){
-    if(event.target.matches('.delete-number-input')){
+  if(numberInputContainer.children.length > 2 && event.target.matches('.delete-number-input')){
       //console.log('gevonden');
       const inputGroup = event.target.closest('.number-input-group');
       inputGroup.remove();
-    }
   } 
   
   printNumberCount();
@@ -76,8 +74,8 @@ function removeNumberInput(event) {
 sumSubmitBtn.addEventListener('click',printSum);
 productSubmitBtn.addEventListener('click',printProduct);
 
-sumSubmitBtn.addEventListener('onchange',printSum);
-productSubmitBtn.addEventListener('onchange',printProduct);
+//.addEventListener('onchange',printSum);
+//.addEventListener('onchange',printProduct);
 
 addInputBtn.addEventListener('click',addNumberInput);
 numberInputContainer.addEventListener('click',removeNumberInput);

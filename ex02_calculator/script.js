@@ -40,7 +40,7 @@ function multiplyNumbers(){
     totalMultiply *= parseInt(numberInput.value); */
 
     numberInputs.forEach(function (numberInput){
-      totalProduct += parseInt(numberInput.value);
+      totalMultiply *= parseInt(numberInput.value);
 });
     return totalMultiply;
 

@@ -45,7 +45,9 @@ function printProduct() {
 
 function printNumberCount(){
   // get and print the number of input fields
- 
+  const numberOfInputs = numberInputContainer.children.length;
+
+  numberCountContainer.textContent = numberOfInputs;
 }
 
 function addNumberInput(){
@@ -56,16 +58,18 @@ function addNumberInput(){
   newNumberInput.value = "0";
 
   numberInputContainer.appendChild(newInputGroup);
+  printNumberCount();
 
 }
 
 function removeNumberInput(event) {
   // remove a number input
   console.log(event);
-  if (event.target.matches('.delete-number-input')) {
+  if (event.target.matches('.delete-number-input') && (numberInputContainer.children.length > 2)) {
     const selectedInputGroup = event.target.closest('.number-input-group');
     selectedInputGroup.remove();
-  }
+    printNumberCount();
+  } 
 
 }
 

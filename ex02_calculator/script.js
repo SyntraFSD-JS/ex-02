@@ -10,11 +10,19 @@ function sumNumbers() {
   // return the sum value of all the numbers
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum = 0;
-  for(let i = 0; i < numberInputs.length; i++) {
+  /* for(let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
+    totalSum += parseInt(numberInput.value); */
+
+  numberInputs.forEach(function (numberInput){
     totalSum += parseInt(numberInput.value);
-}
+});
     return totalSum;
+}
+
+function realTime(){
+  printProduct();
+  printSum();
 }
 
 function printSum() {
@@ -27,10 +35,13 @@ function multiplyNumbers(){
   // return the product of all the numbers
   const numberInputs = document.querySelectorAll(".number-input");
   let totalMultiply = 1;
-  for (let i = 0; i < numberInputs.length; i++) {
+  /* for (let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
-    totalMultiply *= parseInt(numberInput.value);
-}
+    totalMultiply *= parseInt(numberInput.value); */
+
+    numberInputs.forEach(function (numberInput){
+      totalProduct += parseInt(numberInput.value);
+});
     return totalMultiply;
 
 }
@@ -48,6 +59,7 @@ function addNumberInput(){
   newNumberInput.value = "0";
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
+  realTime();
 }
 
 function removeNumberInput(event) {
@@ -56,7 +68,7 @@ function removeNumberInput(event) {
     const selectedInputGroup = event.target.closest(".number-input-group");
     selectedInputGroup.remove();
     printNumberCount();
-
+    realTime();
 }
 }
 
@@ -67,6 +79,7 @@ function printNumberCount(){
   numberCountContainer.textContent = numberOfInputs;
 
 }
+
   
 // add event listeners
 
@@ -77,3 +90,7 @@ productSubmitBtn.addEventListener("click", printProduct);
 addInputBtn.addEventListener("click", addNumberInput);
 
 numberInputContainer.addEventListener('click', removeNumberInput);
+
+numberInputContainer.addEventListener("input", printSum);
+
+numberInputContainer.addEventListener("input", realTime);

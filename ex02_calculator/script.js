@@ -21,6 +21,7 @@ function sumNumbers() {
 
 function printSum() {
   // print the sum value of all the numbers
+    sumResultContainer.textContent = sumNumbers();
 }
 
 function multiplyNumbers(){
@@ -32,12 +33,13 @@ function multiplyNumbers(){
     let numberInput = numberInputs[i];
     totalProduct = totalProduct * parseInt(numberInput.value);
   }
-  console.log(totalProduct);
+  
   return totalProduct;
 }
 
 function printProduct() {
   // print the product of all the numbers
+  productResultContainer.textContent = multiplyNumbers();
 }
 
 function printNumberCount(){

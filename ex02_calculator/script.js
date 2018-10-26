@@ -11,10 +11,14 @@ function sumNumbers() {
     const numberInputs = document.querySelectorAll(".number-input"); 
     let totalSum = 0;
 
-    for(let i = 0; i < numberInputs.length; i++) {
+   /* for(let i = 0; i < numberInputs.length; i++) {
      let numberInput = numberInputs[i];
      totalSum = totalSum + parseInt(numberInput.value);
-    }
+    } */
+
+    numberInputs.forEach(function(numberInput) {
+      totalSum += parseInt(numberInput.value);
+    })
 
     return totalSum;
 }
@@ -30,10 +34,14 @@ function multiplyNumbers(){
   const numberInputs = document.querySelectorAll(".number-input");
   let totalProduct = 1;
 
-  for( let i = 0; i < numberInputs.length; i++) {
+  /*for( let i = 0; i < numberInputs.length; i++) {
     let numberInput = numberInputs[i];
     totalProduct *= parseInt(numberInput.value);
-  }
+  }*/
+
+  numberInputs.forEach(function(numberInput) {
+    totalProduct *= parseInt(numberInput.value);
+  })
 
   return totalProduct;
 }
@@ -59,18 +67,24 @@ function addNumberInput(){
 
   numberInputContainer.appendChild(newInputGroup);
   printNumberCount();
-
+  realTime();
 }
 
 function removeNumberInput(event) {
   // remove a number input
   console.log(event);
-  if (event.target.matches('.delete-number-input') && (numberInputContainer.children.length > 2)) {
+  if (event.target.matches('.delete-number-input') && numberInputContainer.children.length > 2) {
     const selectedInputGroup = event.target.closest('.number-input-group');
     selectedInputGroup.remove();
     printNumberCount();
+    realTime();
   } 
 
+}
+
+function realTime(){
+  printProduct();
+  printSum();
 }
 
 // add event listeners
@@ -78,3 +92,4 @@ sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
 addInputBtn.addEventListener('click', addNumberInput);
 numberInputContainer.addEventListener('click', removeNumberInput);
+numberInputContainer.addEventListener('input', realTime);

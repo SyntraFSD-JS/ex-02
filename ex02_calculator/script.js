@@ -12,10 +12,12 @@ function sumNumbers() {
   const numberInputs = document.querySelectorAll(".number-input");
   let totalSum=0;
 
-  for(let i = 0;i< numberInputs.length;i++){
+ /* for(let i = 0;i< numberInputs.length;i++){
     let numberinput= numberInputs[i];
     totalSum += parseInt(numberinput.value);
-  }
+  }*/
+
+  numberInputs.forEach(function (numberInputs){totalSum += parseInt(numberinput.value);})
   return totalSum;
 }
 

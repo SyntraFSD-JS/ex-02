@@ -46,6 +46,9 @@ function printNumberCount(){
 
 function addNumberInput(){
   // add a number input
+  const inputGroup = document.querySelector('.number-input-group');
+  const newInputGroup = inputGroup.cloneNode(true);
+  numberInputContainer.appendChild(newInputGroup);
 }
 
 function removeNumberInput(event) {
@@ -56,3 +59,4 @@ function removeNumberInput(event) {
 // add event listeners
 sumSubmitBtn.addEventListener('click', printSum);
 productSubmitBtn.addEventListener('click', printProduct);
+addInputBtn.addEventListener('click', addNumberInput);

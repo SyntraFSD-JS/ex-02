@@ -114,6 +114,6 @@ return totalSum
 
 die function is een lege function maar wel met 1 parameter 
 nl. numberInput en ge vraagt de value op van die parameter
-(op de volgende lijn)
+(op de volgende lijn)  
 
 

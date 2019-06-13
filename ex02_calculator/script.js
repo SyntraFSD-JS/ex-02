@@ -5,15 +5,18 @@ const productResultContainer = document.getElementById("product-result-container
 const numberInputContainer = document.getElementById("input-container");
 const addInputBtn = document.getElementById("add-input-btn");
 const numberCountContainer = document.getElementById("number-count-container");
-const id1 = document.getElementById("1");
-const id2 = document.getElementById("2");
 
 
 function sumNumbers() {
   // return the sum value of all the numbers
-    let value1 = parseInt(id1.value);
-    let value2 = parseInt(id2.value);
-    let sum = value1 + value2;
+    let input = numberInputContainer.querySelectorAll("input");
+    let getal = [];
+    let sum = 0 ;
+
+    for(i = 0; i < input.length; i++){
+        getal.push(input[i]);
+        sum += parseInt(getal[i].value);
+    }
     return sum;
 }
 
@@ -24,10 +27,15 @@ function printSum() {
 
 function multiplyNumbers() {
   // return the product of all the numbers
-    let value1 = parseInt(id1.value);
-    let value2 = parseInt(id2.value);
-    let product = value1 * value2;
-    return product;
+    let input = numberInputContainer.querySelectorAll("input");
+    let getal = [];
+    let prod = 1 ;
+
+    for(i = 0; i < input.length; i++){
+        getal.push(input[i]);
+        prod *= parseInt(getal[i].value);
+    }
+    return prod;
 }
 
 function printProduct() {
@@ -41,7 +49,7 @@ function printNumberCount() {
     numberCountContainer.innerHTML = newCount ;
 }
 
-function addNumberInput(qualifiedName, value) {
+function addNumberInput() {
   // add a number input
     //create new elements
     let newBox = document.createElement('div');
